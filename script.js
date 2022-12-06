@@ -49,6 +49,7 @@ function getFullPrice(price1, price2) {
 
 const getTitle = function (str) {
     return str.charAt(0).toUpperCase();
+    // return str.charAt(0).toUpperCase() + str.slice(1).toLowerCase();
 };
 
 
@@ -71,8 +72,3 @@ console.log(servicePercentPrice);
 
 
 
-const getTiftle = function (str) {
-    return str.charAt(0).toUpperCase() + str.slice(1);
-};
-
-console.log(getTiftle('hello'));
