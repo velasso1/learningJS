@@ -1,10 +1,24 @@
 'use strict';
 
-// Ex. 3-6;
 const title = prompt('Как называется ваш проект?');
 const screens = prompt('Какие типы экранов нужно разработать?');
 const screenPrice = prompt('Сколько будет стоить данная работа?');
+const rollback = 58;
 const adaptive = alert('Нужен ли адаптив на сайте?');
+
+// console.log(typeof title);
+// console.log(typeof fullPrice);
+// console.log(typeof adaptive);
+
+// console.log(screens.length);
+
+// console.log(`Стоимость верстки экранов ${screenPrice} рублей/долларов/гривен/юаней`);
+// console.log(`Стоимость разработки сайта ${fullPrice} рублей/долларов/гривен/юаней`);
+
+// console.log(screens.toLowerCase(), screens.split(", "));
+
+// console.log(fullPrice * (rollback / 100));
+
 
 // Ex. 7;
 const service1 = prompt('Какой дополнительный тип услуги нужен?');
@@ -16,7 +30,6 @@ const servicePrice2 = prompt('Сколько это будет стоить?');
 let fullPrice = screenPrice + servicePrice1 + servicePrice2;
 
 // Ex. 9;
-const rollback = 2500;
 let servicePercentPrice = fullPrice - rollback;
 console.log(Math.ceil(servicePercentPrice));
 
