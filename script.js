@@ -34,10 +34,10 @@ let servicePercentPrice = Math.ceil(fullPrice - (rollback / 100));
 console.log(servicePercentPrice);
 
 // Ex. 10;
-
-if (fullPrice > 30000) {
+fullPrice = 15000;
+if (fullPrice >= 30000) {
     console.log('Даём скидку в 10%');
-} else if (fullPrice > 15000) {
+} else if (fullPrice >= 15000) {
     console.log('Даём скидку в 5%');
 } else {
     console.log('Скидка не предусмотрена');
