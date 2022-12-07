@@ -1,26 +1,28 @@
 'use strict';
 
 const title = prompt('Как называется ваш проект?');
-const screens = prompt('Какие типы экранов нужно разработать?');
-const screenPrice = prompt('Сколько будет стоить данная работа?');
+const screens = prompt('Какие типы экранов нужно разработать?', 'Большие, Сложные, Интерактивные');
+const screenPrice = +prompt('Сколько будет стоить данная работа?');
 
-const adaptive = alert('Нужен ли адаптив на сайте?');
+const adaptive = confirm('Нужен ли адаптив на сайте?');
 
 const service1 = prompt('Какой дополнительный тип услуги нужен?');
-const servicePrice1 = prompt('Сколько это будет стоить?');
+const servicePrice1 = +prompt('Сколько это будет стоить?');
 const service2 = prompt('Какой дополнительный тип услуги нужен?');
-const servicePrice2 = prompt('Сколько это будет стоить?');
+const servicePrice2 = +prompt('Сколько это будет стоить?');
 
 const rollback = 58;
-
-let fullPrice = screenPrice + servicePrice1 + servicePrice2;
-let servicePercentPrice = Math.ceil(fullPrice - (rollback / 100));
 
 let allServicePrices;
 
 
 
 
+let fullPrice = screenPrice + servicePrice1 + servicePrice2;
+
+let servicePercentPrice = Math.ceil(fullPrice - (fullPrice * (rollback / 100)));
+
+let sreensLower = screens.toLowerCase();
 
 const showTypeOf = function (variable) {
     console.log(variable, typeof variable);
@@ -48,27 +50,24 @@ function getFullPrice(price1, price2) {
 }
 
 const getTitle = function (str) {
-    return str.charAt(0).toUpperCase();
-    // return str.charAt(0).toUpperCase() + str.slice(1).toLowerCase();
+    str = str.trim();
+    return str.charAt(0).toUpperCase() + str.slice(1).toLowerCase();
 };
+
+const getServicePercentPrices = function (price, rolback) {
+    servicePercentPrice = price - (price * (rolback / 100));
+    return Math.ceil(servicePercentPrice);
+};
+
+
 
 
 showTypeOf(title);
 showTypeOf(fullPrice);
 showTypeOf(adaptive);
 
+console.log(sreensLower.split(", "));
+
 console.log(getRollbackMessage(fullPrice));
 
-console.log(screens.length);
-
-console.log(`Стоимость верстки экранов ${screenPrice} рублей`);
-console.log(`Стоимость разработки сайта ${fullPrice} рублей`);
-
-console.log(screens.toLowerCase(), screens.split(", "));
-
-console.log(fullPrice * (rollback / 100));
-
-console.log(servicePercentPrice);
-
-
-
+console.log(getServicePercentPrices(fullPrice, rollback));
