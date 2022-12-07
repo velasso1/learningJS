@@ -1,7 +1,7 @@
 'use strict';
 
 const title = prompt('Как называется ваш проект?');
-const screens = prompt('Какие типы экранов нужно разработать?');
+const screens = prompt('Какие типы экранов нужно разработать?', 'Большие, Сложные, Интерактивные');
 const screenPrice = +prompt('Сколько будет стоить данная работа?');
 
 const adaptive = confirm('Нужен ли адаптив на сайте?');
@@ -38,6 +38,7 @@ console.log(typeof adaptive);
 console.log(`Стоимость верстки экранов ${screenPrice} рублей`);
 console.log(`Стоимость разработки сайта ${fullPrice} рублей`);
 
-console.log(screens.toLowerCase(), screens.split(", "));
+let sreensLower = screens.toLowerCase();
+console.log(sreensLower.split(", "));
 
 console.log(servicePercentPrice);
