@@ -1,15 +1,15 @@
 'use strict';
 
-const title = prompt('Как называется ваш проект?');
+let title = prompt('Как называется ваш проект?', 'Калькулятор');
 const screens = prompt('Какие типы экранов нужно разработать?', 'Большие, Сложные, Интерактивные');
-const screenPrice = +prompt('Сколько будет стоить данная работа?');
+const screenPrice = +prompt('Сколько будет стоить данная работа?', 20000);
 
 const adaptive = confirm('Нужен ли адаптив на сайте?');
 
-const service1 = prompt('Какой дополнительный тип услуги нужен?');
-const servicePrice1 = +prompt('Сколько это будет стоить?');
-const service2 = prompt('Какой дополнительный тип услуги нужен?');
-const servicePrice2 = +prompt('Сколько это будет стоить?');
+
+let fullPrice;
+let servicePercentPrice;
+let allServicePrices;
 
 const rollback = 58;
 
@@ -34,35 +34,51 @@ const getRollbackMessage = function (price) {
 };
 
 
-const getAllServicePrices = function (service1, service2) {
-    let allServicePrices = service1 + service2;
-    return allServicePrices;
+// const service1 = prompt('Какой дополнительный тип услуги нужен?');
+// const servicePrice1 = +prompt('Сколько это будет стоить?');
+// const service2 = prompt('Какой дополнительный тип услуги нужен?');
+// const servicePrice2 = +prompt('Сколько это будет стоить?');
+
+const getAllServicePrices = function () {
+    let sum = 0;
+
+    for (let i = 0; i < 2; i++) {
+        sum += +prompt('Сколько это будет стоить?');
+    }
+    return sum;
+    // return servicePrice1 + servicePrice2;
+
 };
 
-function getFullPrice(price1, price2) {
-    let fullPrice = price1 + price2;
-    return fullPrice;
+function getFullPrice() {
+    return screenPrice + allServicePrices;
 }
 
-const getTitle = function (str) {
-    str = str.trim();
-    return str.charAt(0).toUpperCase() + str.slice(1).toLowerCase();
+const getTitle = function () {
+    title = title.trim();
+    return title.charAt(0).toUpperCase() + title.slice(1).toLowerCase();
 };
 
 const getServicePercentPrices = function (price, rolback) {
-    let servicePercentPrice = price - (price * (rolback / 100));
+    servicePercentPrice = price - (price * (rolback / 100));
     return Math.ceil(servicePercentPrice);
 };
 
 
 
+allServicePrices = getAllServicePrices();
+fullPrice = getFullPrice();
+servicePercentPrice = getServicePercentPrices();
+title = getTitle();
 
 showTypeOf(title);
-showTypeOf(getFullPrice());
+showTypeOf(fullPrice);
 showTypeOf(adaptive);
+
+console.log('allServicePrices', allServicePrices);
 
 console.log(sreensLower.split(", "));
 
-console.log(getRollbackMessage(getFullPrice()));
+console.log(getRollbackMessage(fullPrice));
 
-console.log(getServicePercentPrices(getFullPrice(), rollback));
+console.log(getServicePercentPrices(fullPrice, rollback));
