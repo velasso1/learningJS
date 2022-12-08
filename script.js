@@ -6,11 +6,6 @@ const screenPrice = +prompt('Сколько будет стоить данная
 
 const adaptive = confirm('Нужен ли адаптив на сайте?');
 
-const service1 = prompt('Какой дополнительный тип услуги нужен?');
-const servicePrice1 = +prompt('Сколько это будет стоить?');
-const service2 = prompt('Какой дополнительный тип услуги нужен?');
-const servicePrice2 = +prompt('Сколько это будет стоить?');
-
 
 let fullPrice;
 let servicePercentPrice;
@@ -38,6 +33,11 @@ const getRollbackMessage = function (price) {
     }
 };
 
+
+const service1 = prompt('Какой дополнительный тип услуги нужен?');
+const servicePrice1 = +prompt('Сколько это будет стоить?');
+const service2 = prompt('Какой дополнительный тип услуги нужен?');
+const servicePrice2 = +prompt('Сколько это будет стоить?');
 
 const getAllServicePrices = function () {
     let sum = 0;
