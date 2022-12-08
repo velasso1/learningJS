@@ -40,13 +40,7 @@ const getRollbackMessage = function (price) {
 
 
 const getAllServicePrices = function () {
-    let sum = 0;
-
-    for (let i = 0; i < 2; i++) {
-        sum += +prompt('Сколько это будет стоить?');
-    }
-    return sum;
-    // return servicePrice1 + servicePrice2;
+    return servicePrice1 + servicePrice2;
 
 };
 
