@@ -13,14 +13,9 @@ const servicePrice2 = +prompt('Сколько это будет стоить?');
 
 const rollback = 58;
 
-let allServicePrices;
 
 
 
-
-let fullPrice = screenPrice + servicePrice1 + servicePrice2;
-
-let servicePercentPrice = Math.ceil(fullPrice - (fullPrice * (rollback / 100)));
 
 let sreensLower = screens.toLowerCase();
 
@@ -40,12 +35,12 @@ const getRollbackMessage = function (price) {
 
 
 const getAllServicePrices = function (service1, service2) {
-    allServicePrices = service1 + service2;
+    let allServicePrices = service1 + service2;
     return allServicePrices;
 };
 
 function getFullPrice(price1, price2) {
-    fullPrice = price1 + price2;
+    let fullPrice = price1 + price2;
     return fullPrice;
 }
 
@@ -55,7 +50,7 @@ const getTitle = function (str) {
 };
 
 const getServicePercentPrices = function (price, rolback) {
-    servicePercentPrice = price - (price * (rolback / 100));
+    let servicePercentPrice = price - (price * (rolback / 100));
     return Math.ceil(servicePercentPrice);
 };
 
@@ -63,11 +58,11 @@ const getServicePercentPrices = function (price, rolback) {
 
 
 showTypeOf(title);
-showTypeOf(fullPrice);
+showTypeOf(getFullPrice());
 showTypeOf(adaptive);
 
 console.log(sreensLower.split(", "));
 
-console.log(getRollbackMessage(fullPrice));
+console.log(getRollbackMessage(getFullPrice()));
 
-console.log(getServicePercentPrices(fullPrice, rollback));
+console.log(getServicePercentPrices(getFullPrice(), rollback));
