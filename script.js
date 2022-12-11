@@ -40,7 +40,7 @@ const asking = function () {
     adaptive = confirm('Нужен ли адаптив на сайте?');
 
     do {
-        screenPrice = prompt('Сколько будет стоить данная работа?');
+        screenPrice = +prompt('Сколько будет стоить данная работа?');
     } while (!isNumber(screenPrice));
 
 };
@@ -55,34 +55,40 @@ const getAllServicePrices = function () {
         } else if (i === 1) {
             service2 = prompt('Какой дополнительный тип услуги нужен?');
         }
+        // sum += +prompt('Сколько это будет стоить?');
+
         sum += +prompt('Сколько это будет стоить?');
 
+        while (!isNumber(sum)) {
+            alert('Неверное значение');
+            sum = +prompt('Сколько это будет стоить?');
+            break;
+        }
     }
     return sum;
     // return servicePrice1 + servicePrice2;
 
 };
 
-function getFullPrice() {
+function getFullPrice(screenPrice, allServicePrices) {
     return screenPrice + allServicePrices;
 }
 
-const getTitle = function () {
-    title = title.trim();
+const getTitle = function (title) {
+    title.trim();
     return title.charAt(0).toUpperCase() + title.slice(1).toLowerCase();
 };
 
-const getServicePercentPrices = function (price, rolback) {
-    servicePercentPrice = price - (price * (rolback / 100));
-    return Math.ceil(servicePercentPrice);
+const getServicePercentPrices = function (fullPrice, rollback) {
+    return Math.ceil(fullPrice - (fullPrice * (rollback / 100)));
 };
 
 
 asking();
 allServicePrices = getAllServicePrices();
-fullPrice = getFullPrice();
-servicePercentPrice = getServicePercentPrices();
-title = getTitle();
+fullPrice = getFullPrice(screenPrice, allServicePrices);
+servicePercentPrice = getServicePercentPrices(fullPrice, rollback);
+title = getTitle(title);
 
 showTypeOf(title);
 showTypeOf(fullPrice);
@@ -90,9 +96,9 @@ showTypeOf(adaptive);
 
 console.log('allServicePrices', allServicePrices);
 
-let sreensLower = screens.toLowerCase();
-console.log(sreensLower.split(", "));
+let sreensLower = screens.toLowerCase().split(", ");
+console.log(sreensLower);
 
 console.log(getRollbackMessage(fullPrice));
 
-console.log(getServicePercentPrices(fullPrice, rollback));
+console.log(servicePercentPrice);
