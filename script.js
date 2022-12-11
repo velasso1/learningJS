@@ -15,7 +15,6 @@ const rollback = 58;
 
 
 
-
 const isNumber = function (num) {
     return !isNaN(parseFloat(num)) && isFinite(num);
 };
@@ -56,26 +55,16 @@ const getAllServicePrices = function () {
         } else if (i === 1) {
             service2 = prompt('Какой дополнительный тип услуги нужен?');
         }
-        // sum += +prompt('Сколько это будет стоить?');
 
         sum += +prompt('Сколько это будет стоить?');
 
         while (!isNumber(sum)) {
             alert('Неверное значение');
             sum = +prompt('Сколько это будет стоить?');
+            break;
         }
-
-        sum = sum.toString();
-        sum.trim();
-        sum = parseInt(sum);
-
-        console.log('this is', typeof sum);
-        console.log(sum);
-
-
     }
     return sum;
-    // return servicePrice1 + servicePrice2;
 
 };
 
