@@ -55,7 +55,6 @@ const getAllServicePrices = function () {
         } else if (i === 1) {
             service2 = prompt('Какой дополнительный тип услуги нужен?');
         }
-        // sum += +prompt('Сколько это будет стоить?');
 
         sum += +prompt('Сколько это будет стоить?');
 
@@ -66,7 +65,6 @@ const getAllServicePrices = function () {
         }
     }
     return sum;
-    // return servicePrice1 + servicePrice2;
 
 };
 
