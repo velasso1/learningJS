@@ -66,6 +66,7 @@ const getAllServicePrices = function () {
         sum = sum.toString();
         sum.trim();
         sum = parseInt(sum);
+        let a;
 
     }
     return sum;
