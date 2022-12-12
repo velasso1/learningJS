@@ -15,6 +15,7 @@ const rollback = 58;
 
 
 
+
 const isNumber = function (num) {
     return !isNaN(parseFloat(num)) && isFinite(num);
 };
@@ -36,7 +37,6 @@ const getRollbackMessage = function (price) {
 const asking = function () {
     title = prompt('Как называется ваш проект?', 'Калькулятор');
     screens = prompt('Какие типы экранов нужно разработать?', 'Большие, Сложные, Интерактивные');
-    // screenPrice = prompt('Сколько будет стоить данная работа?');
     adaptive = confirm('Нужен ли адаптив на сайте?');
 
     do {
@@ -48,6 +48,7 @@ const asking = function () {
 
 const getAllServicePrices = function () {
     let sum = 0;
+    let answer = 0;
 
     for (let i = 0; i < 2; i++) {
         if (i === 0) {
@@ -56,12 +57,15 @@ const getAllServicePrices = function () {
             service2 = prompt('Какой дополнительный тип услуги нужен?');
         }
 
-        sum += +prompt('Сколько это будет стоить?');
+        answer = prompt('Сколько это будет стоить?');
 
-        while (!isNumber(sum)) {
-            alert('Неверное значение');
-            sum = +prompt('Сколько это будет стоить?');
-            break;
+        while (!isNumber(answer) || answer == null) {
+            answer = prompt('Сколько это будет стоить?');
+        }
+
+        if (isNumber(answer) || answer != null) {
+            answer = parseInt(answer);
+            sum += answer;
         }
     }
     return sum;
