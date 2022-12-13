@@ -17,7 +17,7 @@ const rollback = 58;
 
 
 const isNumber = function (num) {
-    return !isNaN(parseFloat(num)) && isFinite(num);
+    return !isNaN(parseFloat(num)) && isFinite(num) && num != null;
 };
 
 const showTypeOf = function (variable) {
@@ -59,13 +59,8 @@ const getAllServicePrices = function () {
 
         answer = prompt('Сколько это будет стоить?');
 
-        while (!isNumber(answer) || answer == null) {
+        while (!isNumber(answer)) {
             answer = prompt('Сколько это будет стоить?');
-        }
-
-        if (isNumber(answer) || answer != null) {
-            answer = parseInt(answer);
-            sum += answer;
         }
     }
     return sum;
