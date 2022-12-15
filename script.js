@@ -106,9 +106,9 @@ const appData = {
     },
 
     logger: function () {
-        // for (let key in appData) {
-        //     console.log(key);
-        // }
+        for (let key in appData) {
+            console.log(key);
+        }
         console.log(appData.fullPrice);
         console.log(appData.servicePercentPrice);
         console.log(appData.screens);
