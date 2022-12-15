@@ -14,6 +14,7 @@ const appData = {
     asking: function () {
         appData.title = prompt('Как называется ваш проект?', 'Калькулятор');
         appData.screens = prompt('Какие типы экранов нужно разработать?', 'Большие, Сложные, Интерактивные');
+        appData.screens.toLowerCase().split(", ");
         appData.adaptive = confirm('Нужен ли адаптив на сайте?');
 
         do {
@@ -58,27 +59,25 @@ const appData = {
 
     },
 
-    getFullPrice: function (screenPrice, allServicePrices) {
-        return parseInt(screenPrice) + allServicePrices;
+    getFullPrice: function () {
+        return parseInt(appData.screenPrice) + appData.allServicePrices;
     },
 
-    getTitle: function (title) {
-        title.trim();
-        return title.charAt(0).toUpperCase() + title.slice(1).toLowerCase();
+    getTitle: function () {
+        return appData.title.trim().charAt(0).toUpperCase() + appData.title.slice(1).toLowerCase();
     },
 
-    getServicePercentPrices: function (fullPrice, rollback) {
-        return Math.ceil(fullPrice - (fullPrice * (rollback / 100)));
+    getServicePercentPrices: function () {
+        return Math.ceil(appData.fullPrice - (appData.fullPrice * (appData.rollback / 100)));
     },
 
     start: function () {
         appData.asking();
-        appData.allServicePrices = appData.getAllServicePrices();
-        appData.fullPrice = appData.getFullPrice(appData.screenPrice, appData.allServicePrices);
-        appData.servicePercentPrice = appData.getServicePercentPrices(appData.fullPrice, appData.rollback);
-        appData.title = appData.getTitle(appData.title);
-        appData.screens.toLowerCase().split(", ");
-        console.log(appData.logger());
+        appData.getAllServicePrices();
+        appData.getFullPrice();
+        appData.getServicePercentPrices();
+        appData.getTitle();
+        appData.logger();
     },
 
     logger: function () {
