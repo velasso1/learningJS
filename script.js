@@ -55,20 +55,20 @@ const appData = {
 
             sum += parseInt(answer);
         }
-        return sum;
+        appData.allServicePrices = sum;
 
     },
 
     getFullPrice: function () {
-        return parseInt(appData.screenPrice) + appData.allServicePrices;
+        appData.fullPrice = parseInt(appData.screenPrice) + appData.allServicePrices;
     },
 
     getTitle: function () {
-        return appData.title.trim().charAt(0).toUpperCase() + appData.title.slice(1).toLowerCase();
+        appData.title = appData.title.trim().charAt(0).toUpperCase() + appData.title.slice(1).toLowerCase();
     },
 
     getServicePercentPrices: function () {
-        return Math.ceil(appData.fullPrice - (appData.fullPrice * (appData.rollback / 100)));
+        appData.servicePercentPrice = Math.ceil(appData.fullPrice - (appData.fullPrice * (appData.rollback / 100)));
     },
 
     start: function () {
