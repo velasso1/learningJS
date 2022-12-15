@@ -66,11 +66,11 @@ const appData = {
     },
 
     isString: function (str) {
-        return isNaN(str) && typeof str === 'string' && str != null;
+        return isNaN(str) && typeof str === 'string' && str !== null;
     },
 
     isNumber: function (num) {
-        return !isNaN(parseFloat(num)) && isFinite(num) && num != null;
+        return !isNaN(parseFloat(num)) && isFinite(num) && num !== null;
     },
 
     getRollbackMessage: function (price) {
