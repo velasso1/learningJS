@@ -73,10 +73,12 @@ const appData = {
 
     start: function () {
         appData.asking();
+
         appData.getAllServicePrices();
         appData.getFullPrice();
         appData.getServicePercentPrices();
         appData.getTitle();
+
         appData.logger();
     },
 
