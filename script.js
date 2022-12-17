@@ -1,26 +1,23 @@
 'use strict';
 
 const title = document.getElementsByTagName('h1')[0];
+const buttonPlus = document.querySelector('.screen-btn');
+const otherItemsPercent = document.querySelectorAll('.other-items.percent');
+const otherItemsNumber = document.querySelectorAll('.other-items.number');
 
-const calc = document.getElementsByClassName('handler_btn')[0];
-const res = document.getElementsByClassName('handler_btn')[1];
+const inputRange = document.querySelector('div.rollback input[type=range]');
+const inputRangeValue = document.querySelector('div.rollback span.range-value');
 
-const btnPlus = document.querySelector('.screen-btn');
+const startBtn = document.getElementsByClassName('handler_btn')[0];
+const resetBtn = document.getElementsByClassName('handler_btn')[1];
 
-const itemsHasPercent = document.querySelectorAll('.other-items.percent');
-const itemsHasNumber = document.querySelectorAll('.other-items.number');
+const total = document.getElementsByClassName('total-input')[0];
+const totalCount = document.getElementsByClassName('total-input')[1];
+const totalCountOther = document.getElementsByClassName('total-input')[2];
+const inputTotalCount = document.getElementsByClassName('total-input')[3];
+const totalCountRollback = document.getElementsByClassName('total-input')[4];
 
-const input = document.querySelector('div.rollback input[type=range]');
-
-const span = document.querySelector('div.rollback span.range-value');
-
-const totalInput0 = document.getElementsByClassName('total-input')[0];
-const totalInput1 = document.getElementsByClassName('total-input')[1];
-const totalInput2 = document.getElementsByClassName('total-input')[2];
-const totalInput3 = document.getElementsByClassName('total-input')[3];
-const totalInput4 = document.getElementsByClassName('total-input')[4];
-
-let blocks = document.querySelectorAll('div.screen');
+let screens = document.querySelectorAll('.screen');
 
 const appData = {
     title: '',
@@ -88,7 +85,7 @@ const appData = {
     },
 
     isString: function (str) {
-        return isNaN(str) && typeof str === 'string' && str !== null;
+        return typeof str === 'string' && str !== null;
     },
 
     isNumber: function (num) {
